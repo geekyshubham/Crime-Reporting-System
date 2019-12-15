@@ -10,7 +10,7 @@ $name=$_SESSION["username"];
 
 
 	
-	if(strlen($contact)<11)
+	if(strlen($contact)<10)
 		echo "Enter a valid contact number ";
 	else
 	{

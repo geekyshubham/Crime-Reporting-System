@@ -2,19 +2,33 @@
 <html>
 <head>	
 	<title>Homepage</title>
+		
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+		<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/chosen/0.9.15/chosen.css'>
+		<link rel='stylesheet' href='https://s.cdpn.io/43033/animate.min.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+	
+	
 </head>
 
 <body>
-<table style="width: 100%;border-collapse: collapse;border: 1px solid black;padding: 5px;">
-			<tr style="width: 100%;border-collapse: collapse;border: 1px solid black;padding: 5px;">
-				<th style="border-collapse: collapse;border: 1px solid black;padding: 5px;"><a href="home.php"><b>Home</b></a></th>
+<nav>
+  <ul>
+    <li>
+	<a href="home.php"><b>Home</b></a>
+    </li>
+    <li>
+	<a href="logout.php"><b>Logout</b></a>
+    </li>
+  </ul>
+</nav>
+
+			<center><h3>Promote User</h3></center><br><br>
+			<center>
 				
-				
-				<th style="border-collapse: collapse;border: 1px solid black;padding: 5px;"><a href="logout.php"><b>Logout</b></a></th>
-				
-			</tr>
-			</table>
-			<center><h3>Promote User</h3></center>
 <div id="a1">
 
 </div>
@@ -44,6 +58,7 @@ $result= $mysqli->query("SELECT * FROM login_info where type!=0 ");
 	<td><button onclick="makeinvestigator()">Make investigator</button></td>
 	</tr>
 	</table>
+</center>
 </body>
 <script>
 	function makeadmin()

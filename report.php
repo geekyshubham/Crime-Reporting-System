@@ -1,29 +1,65 @@
 <html>
-	<head></head>
+	<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/chosen/0.9.15/chosen.css'>
+    <link rel='stylesheet' href='https://s.cdpn.io/43033/animate.min.css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<style>
+
+.card {
+  display: flexbox;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.66); 
+  height: 350px;
+  width: 80%;
+  margin: 20px;
+  border-radius: 25px;
+}
+
+.card .header {
+  position: absolute;
+  bottom: 20px;
+  padding: 20px;
+}
+
+.wrap {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+    </style>
+    </head>
 	<?php
 	session_start();
 	if((!isset($_SESSION["type"]))||($_SESSION["type"]!="user"))
 		header('Location:index.php');
 	?>
-	<body style="background-color:yellow">
-				<table style="width: 100%;border-collapse: collapse;border: 1px solid black;padding: 5px;">
-			<tr style="width: 100%;border-collapse: collapse;border: 1px solid black;padding: 5px;">
-				<th style="border-collapse: collapse;border: 1px solid black;padding: 5px;"><a href="user.php"><b>Home</b></a></th>
-				<th style="border-collapse: collapse;border: 1px solid black;padding: 5px;"><a href="index.php"><b>Logout</b></a></th>
-				
-			</tr>
-		</table>
-		<center>
-		<h3> Report Crime</h3>
+	<body >
+        <nav>
+  <ul>
+    <li>
+	<a href="user.php"><b>Home</b></a>
+    </li>
+    <li>
+	<a href="index.php"><b>Logout</b></a>
+    </li>
+  </ul>
+</nav>
+
+<CENTER><div class="wrap">
+  
+    <div class="card">
+      <br>
+    <h3> Report Crime </h3>
 		<form>
 		Crime Type : 
 		<select id="ct" onchange="addarea()" onfocus="addarea()">
 		<option>Fraud</option>
 		<option>CyberCrime</option>
 		<option>Robbery</option>
-		<option>Rap</option>
-		<option>Sexual Harresment</option>
-		<option>Child Abuse</option>
+	
 		<option>Hijack</option>
 		</select>
 		</br>
@@ -32,8 +68,12 @@
 		
 		</form>
 			<div id="d1">
-			</div>
-			</center>
+            </div>
+        </div>
+ 
+</div></CENTER>
+            
+            
 	</body>
 	<script>
 		function addarea()
@@ -132,4 +172,9 @@
 	}
 	</script>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js'></script>
+<script  src="./assets/js/script.js"></script>
 </html>

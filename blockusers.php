@@ -81,8 +81,9 @@
 	}
 		</STYLE>
 	</head>
-<body> 
-<nav>
+	<body >
+
+	<nav>
   <ul>
     <li>
 	<a href="home.php"><b>Home</b></a>
@@ -92,55 +93,44 @@
     </li>
   </ul>
 </nav>
-			
-			<center><h3 style="color:white;">User Info</h3></center>
-		
-			<br>
 
-<?php 
-	include_once("config.php");
+	<table width='80%' border=0 align='center'>
+	<thead>
+	<tr>
+		<th>Username</th>
+		<th>email</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Contact</th>
+		<th>Approve</th>
+		
+	</tr>
+</thead>
+	<?php 
 	session_start();
 if((!isset($_SESSION["type"]))||($_SESSION["type"]!="admin"))
 		header('Location:index.php');
-//fetching data in descending order (lastest entry first)
-
-	
-	
-	echo "<table>";
-	echo "<thead>";
-	echo "<tr><th >"."Username"."</th>";
-	echo "<th >"."Email"."</th>";
-	echo "<th >"."Contact"."</th>";
-	echo "<th >"."User Type"."</th></tr>";
-	echo "</thead>";
-
-	
-	 	
-		$resu= $mysqli->query("SELECT * FROM user_info  ");
-		while($re = $resu->fetch_object())
-		{   echo "<tr >";
-			echo "<td >".$re->username."</td>";
-			echo "<td >".$re->email."</td>";
-			echo "<td >".$re->mobile."</td>";
-			$result= $mysqli->query("SELECT * FROM login_info where username='$re->username' ");
-			while($res = $result->fetch_object()) 
+include_once("config.php");
+$result= $mysqli->query("SELECT * FROM login_info where type=5 ");
+	while($res = $result->fetch_object()) 
+	{ 		$resul= $mysqli->query("SELECT * FROM user_info where username='$res->username' ");
+			while($rs=$resul->fetch_object())
 			{
-				if($res->type==0)
-					echo "<td >Unverified</td>";
-				else if($res->type==1)
-					echo "<td >verified</td>";
-				else if($res->type==2)
-					echo "<td >Admin</td>";
-				if($res->type==3)
-					echo "<td >Investigator</td>";
 				
-			}
-			echo "</tr>";
-		}
+				echo "<tr>";
+		echo "<td>".$rs->username."</td>";
+		echo "<td>".$rs->email."</td>";
+		echo "<td>".$rs->age."</td>";
+		echo "<td>".$rs->gender."</td>";
+		echo "<td>".$rs->mobile."</td>";
 		
-			
-	
-	echo "</table>";
+		echo "<td><a href=\"unblocked.php?id=$rs->username\">UnBlock</a> </td>";	
+		echo "</tr>";
+				
+			}	
+	}
 	?>
+	</table>
+	
 	</body>
-	</html>
+</html>

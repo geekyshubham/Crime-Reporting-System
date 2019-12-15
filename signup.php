@@ -15,7 +15,6 @@
 		
 				
 		
-		
 				if(strlen($_POST["fname"])<5)
 					$ferror="Length of firstname should be at least 5 ";
 				else
@@ -53,20 +52,25 @@
 				
 			}
 				
-				
+		
 			}
+
+			if(!isset($_POST['gender']))
+{
+	$error="Length of username should be at least 5 ";
+}
 			
 			if(isset($fok)&&isset($lok)&&isset($nok)&&isset($pok))
 			{
 				
-				$fn=$_POST["fname"];
+		$fn=$_POST["fname"];
 		$ln=$_POST["lname"];
 		$un=$_POST["uname"];
 		$ps=$_POST["pass"];
 		$em=$_POST["email"];
 		$noi=$_POST["noi"];
 		$mn=$_POST["numb"];
-		$gnd=$_POST["gender"];
+		$gender=$_POST["gender"];
 		$age=$_POST["age"];
 		$mysqli->query("insert into user_info (first_name,last_name,username,email,age,institute,mobile,gender) values('$fn','$ln','$un','$em',$age,'$noi','$mn','$gnd')");
 $mysqli->query("insert into login_info (username,password,type) values('$un','$ps',0)");
@@ -76,6 +80,8 @@ $mysqli->query("insert into login_info (username,password,type) values('$un','$p
 			}
 
 		?>
+
+		
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -111,9 +117,9 @@ $mysqli->query("insert into login_info (username,password,type) values('$un','$p
         <span id="rsp"><? if(isset($pmr)) echo $pmr;?>   </span>
         <br><br>
         Gender:<br>
-			Male: <input type="radio" name="gender" value="male">
+			Male: <input type="radio" name="gender" value="male" checked>
 			Female: <input type="radio" name="gender" value="female">
-    
+			
         <br>
 		<br>
 		
